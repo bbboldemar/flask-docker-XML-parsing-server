@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<ns1:MatchPersonInBlackList xmlns:ns1="http://www.vtb24.ru/request/v1">
+			<PersonInBlackList>
+				<FullName>Имя Фамилия Отчество</FullName>
+				<ListOfAddress/>
+				<DULSeries>QWE123</DULSeries>
+				<DULNumber>123456</DULNumber>
+			</PersonInBlackList>
+		</ns1:MatchPersonInBlackList>
+	</soapenv:Body>
+</soapenv:Envelope>

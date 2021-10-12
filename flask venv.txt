@@ -1,0 +1,15 @@
+да C:\>cd C:\myproject
+
+C:\myproject>py -3 -m venv venv
+
+да C:\myproject>venv\Scripts\activate
+
+(venv) C:\myproject>pip install Flask
+
+(venv) C:\myproject>python -c "import flask; print(flask.__version__)"
+
+да (venv) C:\myproject>set FLASK_APP=hello
+
+да (venv) C:\myproject>set FLASK_ENV=development
+
+да (venv) C:\myproject>flask run

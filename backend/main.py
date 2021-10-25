@@ -4,6 +4,7 @@ from flask import Flask, request, Response, send_from_directory
 import xml.etree.ElementTree as ET
 import xmltodict
 
+path_abuse = r""
 DULNumberBL = ['123456']
 DULSeriesBL = ['QWE123']
 
@@ -17,7 +18,7 @@ def hello():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
+    return send_from_directory(os.path.join(path_abuse, app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 # парсит XML на ключ-значение и отправляет заготовленный XML (true/false)

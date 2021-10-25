@@ -65,24 +65,18 @@ def thru_file():
 
     def change_file():
         '''
-        Add status to file
+        Add status to file thru RegEx
         '''
         with open(path_to_file, 'r') as f:
             get_all = f.readlines()
         with open(path_to_file, 'w') as f:
-            working_line = 0
-            for i, line in enumerate(get_all, 1):
-                if i > working_line:
-                    f.writelines(line)
-                if re.match(r'^.*(<PersonInBlackList>)$', line):
-                    # better write line with re.sub(pattern, (<BlackList>true</BlackList>), line)
-                    f.writelines(
-                        '				<BlackList>true</BlackList>\n'
-                    )
-                if i < working_line:
-                    f.writelines(line)
-
-                working_line += 1
+            for line in get_all:
+                if re.match(r'^.*(</DULSeries>)$', line):
+                    f.writelines(re.sub(
+                        r'[<]{1}(.*)>(.*)</(.*)>', 
+                        r'<BlackList>true</BlackList>', 
+                        line))
+                f.writelines(line)
     write_file(string_data)
     change_file()
     
